@@ -88,7 +88,7 @@ const Hero = () => {
             className="flex items-center justify-center gap-6"
           >
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/mohammad-ibrahim-khalil-it/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors duration-300"
@@ -97,7 +97,7 @@ const Hero = () => {
               <Linkedin size={22} />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/ibrahim99678"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors duration-300"
@@ -106,7 +106,8 @@ const Hero = () => {
               <Github size={22} />
             </a>
             <a
-              href="#"
+              href="/Mohammad_Ibrahim_Khalil_IT.pdf"
+              download
               className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-2 text-sm"
               aria-label="Download Resume"
             >

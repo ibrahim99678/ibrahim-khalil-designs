@@ -31,7 +31,7 @@ const Footer = () => {
             {/* Social & Back to Top */}
             <div className="flex items-center gap-4">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/mohammad-ibrahim-khalil-it/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -40,7 +40,7 @@ const Footer = () => {
                 <Linkedin size={18} />
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/ibrahim99678"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
