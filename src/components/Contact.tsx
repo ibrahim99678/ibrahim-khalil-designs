@@ -69,7 +69,7 @@ const Contact = () => {
               {/* Social Links */}
               <div className="flex gap-4">
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/mohammad-ibrahim-khalil-it/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
@@ -77,7 +77,7 @@ const Contact = () => {
                   <Linkedin size={20} />
                 </a>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/ibrahim99678"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-11 h-11 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
@@ -85,7 +85,8 @@ const Contact = () => {
                   <Github size={20} />
                 </a>
                 <a
-                  href="#"
+                  href="/Mohammad_Ibrahim_Khalil_IT.pdf"
+                  download
                   className="h-11 px-5 rounded-lg bg-secondary flex items-center justify-center gap-2 text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                 >
                   <Download size={18} />
