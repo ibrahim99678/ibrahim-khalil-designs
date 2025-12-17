@@ -6,6 +6,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Mail, Send, Linkedin, Github, Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -17,16 +18,34 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: { name, email, message }
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      
+      (e.target as HTMLFormElement).reset();
+    } catch (error: any) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -105,6 +124,7 @@ const Contact = () => {
                 <div>
                   <Input
                     type="text"
+                    name="name"
                     placeholder="Your Name"
                     required
                     className="bg-background border-border focus:border-primary h-12"
@@ -113,6 +133,7 @@ const Contact = () => {
                 <div>
                   <Input
                     type="email"
+                    name="email"
                     placeholder="Your Email"
                     required
                     className="bg-background border-border focus:border-primary h-12"
@@ -120,6 +141,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <Textarea
+                    name="message"
                     placeholder="Your Message"
                     required
                     rows={5}
