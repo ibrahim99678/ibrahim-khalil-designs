@@ -21,6 +21,22 @@ const projects = [
     metrics: "12 Centers | 50K+ Patients/Month",
   },
   {
+    title: "Mir Group Enterprise IT Infrastructure",
+    category: "Enterprise Systems",
+    description: "Led enterprise-wide IT infrastructure supporting 5+ business units across manufacturing, distribution, and retail sectors with 30+ physical and virtual servers.",
+    icon: Server,
+    tech: ["Windows Server", "Linux", "VMware", "ERP Systems"],
+    metrics: "5+ Business Units | 99.99% Uptime",
+  },
+  {
+    title: "ACI Logistics (Shwapno) Operations",
+    category: "Retail Operations",
+    description: "Supervised daily operations across multiple retail outlets with end-to-end supply chain coordination, inventory control, and operational SOP implementation.",
+    icon: Network,
+    tech: ["Supply Chain", "Inventory Management", "POS", "ERP"],
+    metrics: "20% Sales Efficiency | 98% Stock Accuracy",
+  },
+  {
     title: "Islami Bank Hospital IT Infrastructure",
     category: "Infrastructure",
     description: "Complete IT infrastructure setup including network design, server deployment, security implementation, and disaster recovery.",
