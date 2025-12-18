@@ -21,7 +21,7 @@ const projects = [
     metrics: "12 Centers | 50K+ Patients/Month",
   },
   {
-    title: "Mir Group Enterprise IT Infrastructure",
+    title: "Mir Telecom Group IT Infrastructure",
     category: "Enterprise Systems",
     description: "Led enterprise-wide IT infrastructure supporting 5+ business units across manufacturing, distribution, and retail sectors with 30+ physical and virtual servers.",
     icon: Server,
@@ -37,7 +37,7 @@ const projects = [
     metrics: "20% Sales Efficiency | 98% Stock Accuracy",
   },
   {
-    title: "Islami Bank Hospital IT Infrastructure",
+    title: "Islami Bank Hospital IPTSP Infrastructure",
     category: "Infrastructure",
     description: "Complete IT infrastructure setup including network design, server deployment, security implementation, and disaster recovery.",
     icon: Server,
@@ -45,7 +45,7 @@ const projects = [
     metrics: "500+ Endpoints | Zero Downtime Migration",
   },
   {
-    title: "Jamuna Fertilizer IT Systems",
+    title: "Jamuna Fertilizer IPTSP Systems",
     category: "Enterprise Systems",
     description: "Enterprise-wide IT infrastructure modernization with ERP integration, network redesign, and security hardening.",
     icon: Network,
