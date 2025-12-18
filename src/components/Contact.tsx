@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { Mail, Send, Linkedin, Github, Download } from "lucide-react";
+import { Mail, Send, Linkedin, Github, Download, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -83,6 +83,15 @@ const Contact = () => {
                     <p className="text-foreground">contact@ibrahim-khalil.com</p>
                   </div>
                 </div>
+                <a href="tel:+8801911848073" className="flex items-center gap-4 group">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Phone className="text-primary" size={18} />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Phone</p>
+                    <p className="text-foreground group-hover:text-primary transition-colors">+880 1911 848073</p>
+                  </div>
+                </a>
               </div>
 
               {/* Social Links */}
