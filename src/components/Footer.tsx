@@ -1,4 +1,4 @@
-import { Linkedin, Github, Mail, ArrowUp } from "lucide-react";
+import { Linkedin, Github, Mail, ArrowUp, Phone } from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -54,6 +54,13 @@ const Footer = () => {
                 aria-label="Email"
               >
                 <Mail size={18} />
+              </a>
+              <a
+                href="tel:+8801911848073"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Phone"
+              >
+                <Phone size={18} />
               </a>
               <button
                 onClick={scrollToTop}
