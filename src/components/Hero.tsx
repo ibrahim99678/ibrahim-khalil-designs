@@ -31,6 +31,50 @@ const useTypingEffect = (text: string, speed: number = 100, delay: number = 0) =
   return { displayedText, isComplete };
 };
 
+const jobTitles = [
+  "IT Manager",
+  "ERP Specialist", 
+  "Infrastructure Architect",
+  "Software Engineer",
+  "System Administrator"
+];
+
+const useCyclingTypewriter = (texts: string[], typingSpeed: number = 80, pauseDuration: number = 2000) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    const currentText = texts[currentIndex];
+
+    if (isTyping) {
+      if (displayedText.length < currentText.length) {
+        timeout = setTimeout(() => {
+          setDisplayedText(currentText.slice(0, displayedText.length + 1));
+        }, typingSpeed);
+      } else {
+        timeout = setTimeout(() => {
+          setIsTyping(false);
+        }, pauseDuration);
+      }
+    } else {
+      if (displayedText.length > 0) {
+        timeout = setTimeout(() => {
+          setDisplayedText(displayedText.slice(0, -1));
+        }, typingSpeed / 2);
+      } else {
+        setCurrentIndex((prev) => (prev + 1) % texts.length);
+        setIsTyping(true);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayedText, isTyping, currentIndex, texts, typingSpeed, pauseDuration]);
+
+  return displayedText;
+};
+
 const Hero = () => {
   const { displayedText: nameText, isComplete: nameComplete } = useTypingEffect(
     "Mohammad Ibrahim Khalil",
@@ -42,6 +86,7 @@ const Hero = () => {
     100,
     nameComplete ? 0 : 2500
   );
+  const jobTitle = useCyclingTypewriter(jobTitles, 80, 2000);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -100,6 +145,17 @@ const Hero = () => {
               {!nameComplete && <span className="opacity-0">|</span>}
               {nameComplete && <span className="animate-pulse text-primary">|</span>}
             </span>
+          </motion.div>
+
+          {/* Rotating Job Title */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-xl md:text-2xl lg:text-3xl text-primary font-medium mb-6 h-10"
+          >
+            <span>{jobTitle}</span>
+            <span className="animate-pulse">|</span>
           </motion.div>
 
           {/* Subheadline */}
