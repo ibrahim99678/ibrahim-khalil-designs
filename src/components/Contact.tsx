@@ -80,7 +80,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="text-foreground">contact@ibrahim-khalil.com</p>
+                    <p className="text-foreground">ibrahim.cse10@gmail.com</p>
                   </div>
                 </div>
                 <a href="tel:+8801911848073" className="flex items-center gap-4 group">
