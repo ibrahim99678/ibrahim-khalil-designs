@@ -45,23 +45,25 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  With over 15 years of experience in enterprise IT, I've led transformative 
-                  projects across pharmaceuticals, diagnostics, retail, corporate sectors, 
-                  ISPs, and healthcare networks.
+                  Results-driven IT Manager with over 15 years of progressive experience leading 
+                  enterprise IT operations across pharmaceuticals, retail chains, manufacturing, 
+                  and diversified group companies. Proven expertise in ERP implementation, 
+                  IT infrastructure management, cybersecurity, and large-scale network operations, 
+                  ensuring up to <span className="text-foreground font-medium">99.99% system uptime</span>.
                 </p>
                 <p>
-                  My expertise spans ERP implementation, server/network administration, 
-                  and healthcare IT system integration. Notable achievements include deploying 
-                  centralized ERP systems for <span className="text-foreground font-medium">52 AKS Pharmacy outlets</span>, 
-                  HIS integration for <span className="text-foreground font-medium">12 AKS Healthcare Diagnostics Centers</span>, 
-                  and full IT infrastructure setup for <span className="text-foreground font-medium">Islami Bank Hospitals</span> and 
-                  <span className="text-foreground font-medium"> Jamuna Fertilizer Company Ltd</span>.
+                  Highly skilled in aligning technology with business strategy, leading cross-functional 
+                  IT teams, managing vendors and budgets, and driving digital transformation initiatives 
+                  that improve efficiency, data accuracy, and operational resilience. Notable achievements 
+                  include deploying ERP systems for <span className="text-foreground font-medium">100+ retail outlets</span>, 
+                  managing <span className="text-foreground font-medium">30+ physical and virtual servers</span>, 
+                  and reducing IT operational costs by <span className="text-foreground font-medium">15% annually</span>.
                 </p>
                 <p>
-                  Certified in Ubuntu/Linux Server and CCNA, holding a B.Sc. in Computer 
-                  Science & Engineering, and currently pursuing a Postgraduate Diploma in 
-                  Software Engineering. Passionate about continuous improvement, data protection, 
-                  and scalable system design.
+                  Certified in CCNA, MTCRE, MTCNA, and Cybersecurity. Holding a B.Sc. in Computer 
+                  Science & Engineering from Darul Ihsan University, and currently pursuing a 
+                  Postgraduate Diploma in Microsoft Web Application from Washington University of 
+                  Science and Technology.
                 </p>
               </div>
 
@@ -72,12 +74,12 @@ const About = () => {
                   <p className="text-sm text-muted-foreground mt-1">Years Experience</p>
                 </div>
                 <div>
-                  <p className="font-display text-3xl font-bold text-gradient">52+</p>
+                  <p className="font-display text-3xl font-bold text-gradient">100+</p>
                   <p className="text-sm text-muted-foreground mt-1">Outlets Deployed</p>
                 </div>
                 <div>
-                  <p className="font-display text-3xl font-bold text-gradient">12+</p>
-                  <p className="text-sm text-muted-foreground mt-1">Centers Integrated</p>
+                  <p className="font-display text-3xl font-bold text-gradient">1000+</p>
+                  <p className="text-sm text-muted-foreground mt-1">Users Supported</p>
                 </div>
               </div>
             </motion.div>
