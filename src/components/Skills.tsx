@@ -3,19 +3,19 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 const skills = [
-  { category: "IT Infrastructure", items: ["Server Administration", "Network Architecture", "Cloud Solutions", "Virtualization"], level: 95 },
-  { category: "ERP Implementation", items: ["System Integration", "Data Migration", "Process Automation", "Training"], level: 90 },
-  { category: "Software Development", items: ["C#", "ASP.NET Core", "TypeScript", "Angular"], level: 85 },
-  { category: "Database Management", items: ["MySQL", "MS SQL Server", "Database Design", "Performance Tuning"], level: 90 },
-  { category: "Frontend Technologies", items: ["Bootstrap 5", "Tailwind CSS", "Responsive Design", "UI/UX"], level: 80 },
-  { category: "Healthcare IT", items: ["HIS Integration", "PACS Systems", "EMR/EHR", "HL7/FHIR"], level: 88 },
+  { category: "IT Leadership & Strategy", items: ["IT Operations Management", "Digital Transformation", "Vendor & Budget Management", "IT Infrastructure Planning"], level: 95 },
+  { category: "ERP & Enterprise Systems", items: ["ERP Implementation", "CRM & Business Systems", "Data Integrity & Reporting", "System Customization"], level: 92 },
+  { category: "Infrastructure & Security", items: ["Windows & Linux Server Admin", "Network Architecture (LAN/WAN/VPN)", "Cybersecurity & IT Policy", "Backup, DR & Business Continuity"], level: 95 },
+  { category: "Database & Platforms", items: ["MS SQL Server", "MySQL", "PostgreSQL", "Active Directory & Domain Services"], level: 90 },
+  { category: "Software Development", items: ["ASP.NET Core", "C#", "ERP Customization", "Integration Development"], level: 85 },
+  { category: "Team & Support Management", items: ["IT Team Leadership", "SLA & Incident Management", "Stakeholder Support", "Cross-functional Coordination"], level: 90 },
 ];
 
 const hiringRoles = [
-  "IT Lead",
   "IT Manager",
-  "Software Engineering Project Manager",
-  "Technical Support Manager",
+  "Head of IT",
+  "Infrastructure Manager",
+  "ERP Manager",
 ];
 
 const SkillBar = ({ skill, index }: { skill: typeof skills[0]; index: number }) => {
