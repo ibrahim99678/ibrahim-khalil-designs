@@ -1,8 +1,48 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Download } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Download, Phone } from "lucide-react";
 import { Button } from "./ui/button";
+import { useEffect, useState } from "react";
+
+const useTypingEffect = (text: string, speed: number = 100, delay: number = 0) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    
+    const startTyping = () => {
+      let i = 0;
+      const type = () => {
+        if (i < text.length) {
+          setDisplayedText(text.slice(0, i + 1));
+          i++;
+          timeout = setTimeout(type, speed);
+        } else {
+          setIsComplete(true);
+        }
+      };
+      type();
+    };
+
+    timeout = setTimeout(startTyping, delay);
+    return () => clearTimeout(timeout);
+  }, [text, speed, delay]);
+
+  return { displayedText, isComplete };
+};
 
 const Hero = () => {
+  const { displayedText: nameText, isComplete: nameComplete } = useTypingEffect(
+    "Mohammad Ibrahim Khalil",
+    80,
+    500
+  );
+  const { displayedText: phoneText } = useTypingEffect(
+    "01911848073",
+    100,
+    nameComplete ? 0 : 2500
+  );
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient */}
@@ -34,16 +74,33 @@ const Hero = () => {
             IT Infrastructure & Software Engineering
           </motion.p>
 
-          {/* Main headline */}
+          {/* Main headline with typing effect */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+            className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight"
           >
-            Mohammad Ibrahim{" "}
-            <span className="text-gradient">Khalil</span>
+            <span className="inline-block min-h-[1.2em]">
+              {nameText}
+              <span className="animate-pulse text-primary">|</span>
+            </span>
           </motion.h1>
+
+          {/* Mobile number with typing effect */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="flex items-center justify-center gap-2 text-lg md:text-xl text-primary mb-6"
+          >
+            <Phone size={20} className="text-primary" />
+            <span className="font-mono tracking-wider">
+              {phoneText}
+              {!nameComplete && <span className="opacity-0">|</span>}
+              {nameComplete && <span className="animate-pulse text-primary">|</span>}
+            </span>
+          </motion.div>
 
           {/* Subheadline */}
           <motion.p
