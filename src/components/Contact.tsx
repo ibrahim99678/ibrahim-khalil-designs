@@ -113,7 +113,7 @@ const Contact = () => {
                   <Github size={20} />
                 </a>
                 <a
-                  href="/Mohammad_Ibrahim_Khalil_IT.pdf"
+                  href="/MOHAMMAD_IBRAHIMKHALIL_IT_Manager.pdf"
                   download
                   className="h-11 px-5 rounded-lg bg-secondary flex items-center justify-center gap-2 text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                 >
