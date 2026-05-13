@@ -8,7 +8,7 @@ const useTypingEffect = (text: string, speed: number = 100, delay: number = 0) =
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof setTimeout>;
     
     const startTyping = () => {
       let i = 0;
@@ -45,7 +45,7 @@ const useCyclingTypewriter = (texts: string[], typingSpeed: number = 80, pauseDu
   const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof setTimeout>;
     const currentText = texts[currentIndex];
 
     if (isTyping) {
