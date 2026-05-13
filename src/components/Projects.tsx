@@ -29,12 +29,12 @@ const projects = [
     metrics: "5+ Business Units | 25% Faster Reporting | 20% Error Reduction",
   },
   {
-    title: "ACI Logistics Limited (Shwapno)",
-    category: "Retail Operations",
-    description: "Supervised retail operations across multiple outlets, improving sales efficiency by 20% through SOP implementation and achieving 98% stock accuracy.",
-    icon: Network,
-    tech: ["Supply Chain", "Inventory Management", "POS", "Operations"],
-    metrics: "20% Sales Efficiency | 98% Stock Accuracy",
+    title: "Interface IT Limited",
+    category: "IT Support Engineering",
+    description: "Provided technical support for hardware, software, and network systems, resolving Level 1 and Level 2 tickets with a 98% SLA resolution rate and 95%+ customer satisfaction.",
+    icon: Monitor,
+    tech: ["Hardware", "Networking", "Routers & Switches", "Desktop Support"],
+    metrics: "30 Tickets/Day | 98% SLA | 95%+ CSAT",
   },
   {
     title: "Islami Bank Hospital IPTSP Infrastructure",
