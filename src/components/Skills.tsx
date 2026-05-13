@@ -3,12 +3,14 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 const skills = [
-  { category: "IT Leadership & Strategy", items: ["IT Operations Management", "Digital Transformation", "Vendor & Budget Management", "IT Infrastructure Planning"], level: 95 },
-  { category: "ERP & Enterprise Systems", items: ["ERP Implementation", "CRM & Business Systems", "Data Integrity & Reporting", "System Customization"], level: 92 },
-  { category: "Infrastructure & Security", items: ["Windows & Linux Server Admin", "Network Architecture (LAN/WAN/VPN)", "Cybersecurity & IT Policy", "Backup, DR & Business Continuity"], level: 95 },
-  { category: "Database & Platforms", items: ["MS SQL Server", "MySQL", "PostgreSQL", "Active Directory & Domain Services"], level: 90 },
-  { category: "Software Development", items: ["ASP.NET Core", "C#", "ERP Customization", "Integration Development"], level: 85 },
-  { category: "Team & Support Management", items: ["IT Team Leadership", "SLA & Incident Management", "Stakeholder Support", "Cross-functional Coordination"], level: 90 },
+  { category: "IT Strategy & Leadership", items: ["IT Strategy & Roadmap", "IT Infrastructure Planning", "IT Budget & Vendor Management", "Team Leadership & Mentoring"], level: 95 },
+  { category: "ERP/CRM Implementation", items: ["ERP Deployment & Customization", "CRM & Business Systems", "Inventory, Finance & HR Modules", "Data Integrity & Reporting"], level: 93 },
+  { category: "Enterprise Network Architecture", items: ["LAN/WAN, TCP/IP, DHCP, DNS", "OSPF, NAT, VPN", "MikroTik (MTCNA, MTCRE)", "CCNA Routing & Switching"], level: 95 },
+  { category: "Server & Datacenter Administration", items: ["Windows Server", "Linux Server", "Active Directory & Domain Controller", "Microsoft 365 (Exchange, Teams, SharePoint)"], level: 92 },
+  { category: "Cybersecurity & Governance", items: ["Firewall & Access Control", "Antivirus, DLP, VPN", "IT Policy Enforcement", "Backup & Disaster Recovery"], level: 90 },
+  { category: "Software Development", items: ["C# / .NET 8", "ASP.NET Core MVC", "Angular & TypeScript", "OOP & Design Patterns"], level: 85 },
+  { category: "Databases", items: ["MS SQL Server", "PostgreSQL", "MySQL", "Oracle SQL & DBA (In Progress)"], level: 88 },
+  { category: "Cloud, DevOps & AI Tools", items: ["Microsoft Azure App Services", "IIS Deployment", "ChatGPT, Claude, Gemini, DeepSeek", "Cursor AI, Lovable, n8n MCP"], level: 88 },
 ];
 
 const hiringRoles = [
