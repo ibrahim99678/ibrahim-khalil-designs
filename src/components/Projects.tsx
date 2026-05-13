@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Server, Database, Monitor, Network } from "lucide-react";
+import { ExternalLink, Github, Server, Database, Monitor, Network, Code2, ShoppingCart, Hotel, Stethoscope, MessageSquare, Boxes } from "lucide-react";
 
 const projects = [
   {
@@ -51,6 +51,39 @@ const projects = [
     icon: Network,
     tech: ["SAP Integration", "Active Directory", "VLAN", "Firewall"],
     metrics: "1000+ Users | Multi-site Deployment",
+  },
+];
+
+const softwareProjects = [
+  {
+    title: "Asset Management System",
+    stack: "ASP.NET Core .NET 8",
+    url: "http://103.86.193.112:2040/",
+    icon: Boxes,
+  },
+  {
+    title: "E-Commerce Platform",
+    stack: "ASP.NET Core MVC + EF Core",
+    url: "http://103.86.193.112:2085/",
+    icon: ShoppingCart,
+  },
+  {
+    title: "Hotel Management System",
+    stack: "ASP.NET Core .NET 8",
+    url: "http://103.86.193.112:2080/",
+    icon: Hotel,
+  },
+  {
+    title: "Dental ERP System",
+    stack: "ASP.NET Core .NET 8",
+    url: "http://103.86.193.112:2070/",
+    icon: Stethoscope,
+  },
+  {
+    title: "Question & Answer Platform",
+    stack: "ASP.NET Core .NET 8",
+    url: "http://querynest.2bd.net:2060/",
+    icon: MessageSquare,
   },
 ];
 
@@ -155,6 +188,58 @@ const Projects = () => {
               <ProjectCard key={project.title} project={project} index={index} />
             ))}
           </div>
+
+          {/* Software Projects */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-20"
+          >
+            <div className="text-center mb-10">
+              <p className="text-primary text-sm tracking-widest uppercase mb-3 flex items-center justify-center gap-2">
+                <Code2 size={16} /> Software Projects
+              </p>
+              <h3 className="font-display text-2xl md:text-3xl font-bold mb-3">
+                Live Applications I've Built
+              </h3>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-sm">
+                Click any project to visit the live deployment.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {softwareProjects.map((sp, i) => {
+                const Icon = sp.icon;
+                return (
+                  <motion.a
+                    key={sp.title}
+                    href={sp.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.4 + i * 0.08 }}
+                    className="group card-gradient rounded-xl p-5 border border-border hover:border-primary/40 transition-all duration-300 flex items-start gap-4"
+                  >
+                    <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
+                      <Icon className="text-primary" size={20} />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-2 mb-1">
+                        <h4 className="font-display font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
+                          {sp.title}
+                        </h4>
+                        <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors shrink-0 mt-0.5" />
+                      </div>
+                      <p className="text-xs text-muted-foreground mb-2">{sp.stack}</p>
+                      <p className="text-xs text-primary/80 truncate font-mono">{sp.url}</p>
+                    </div>
+                  </motion.a>
+                );
+              })}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
