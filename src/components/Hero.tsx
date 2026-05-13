@@ -219,7 +219,7 @@ const Hero = () => {
               <Github size={22} />
             </a>
             <a
-              href="/MOHAMMAD_IBRAHIM_Manager_IT.pdf"
+              href="/Mohammad_Ibrahim_Khalil_MIT.pdf"
               download
               className="text-muted-foreground hover:text-primary transition-colors duration-300 flex items-center gap-2 text-sm"
               aria-label="Download Resume"
