@@ -59,30 +59,35 @@ const softwareProjects = [
     title: "Asset Management System",
     stack: "ASP.NET Core .NET 8",
     url: "http://103.86.193.112:2040/",
+    github: "https://github.com/ibrahim99678",
     icon: Boxes,
   },
   {
     title: "E-Commerce Platform",
     stack: "ASP.NET Core MVC + EF Core",
     url: "http://103.86.193.112:2085/",
+    github: "https://github.com/ibrahim99678/ShopSphereCommerce",
     icon: ShoppingCart,
   },
   {
     title: "Hotel Management System",
     stack: "ASP.NET Core .NET 8",
     url: "http://103.86.193.112:2080/",
+    github: "https://github.com/ibrahim99678/HotelManagementSystem",
     icon: Hotel,
   },
   {
     title: "Dental ERP System",
     stack: "ASP.NET Core .NET 8",
     url: "http://103.86.193.112:2070/",
+    github: "https://github.com/ibrahim99678/DentalERP",
     icon: Stethoscope,
   },
   {
     title: "Question & Answer Platform",
     stack: "ASP.NET Core .NET 8",
     url: "http://querynest.2bd.net:2060/",
+    github: "https://github.com/ibrahim99678/QueryNestForum",
     icon: MessageSquare,
   },
 ];
@@ -212,11 +217,8 @@ const Projects = () => {
               {softwareProjects.map((sp, i) => {
                 const Icon = sp.icon;
                 return (
-                  <motion.a
+                  <motion.div
                     key={sp.title}
-                    href={sp.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.4 + i * 0.08 }}
@@ -226,16 +228,33 @@ const Projects = () => {
                       <Icon className="text-primary" size={20} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-start justify-between gap-2 mb-1">
-                        <h4 className="font-display font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">
-                          {sp.title}
-                        </h4>
-                        <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors shrink-0 mt-0.5" />
-                      </div>
+                      <h4 className="font-display font-semibold text-foreground group-hover:text-primary transition-colors leading-tight mb-1">
+                        {sp.title}
+                      </h4>
                       <p className="text-xs text-muted-foreground mb-2">{sp.stack}</p>
-                      <p className="text-xs text-primary/80 truncate font-mono">{sp.url}</p>
+                      <p className="text-xs text-primary/80 truncate font-mono mb-3">{sp.url}</p>
+                      <div className="flex gap-3 pt-3 border-t border-border">
+                        <a
+                          href={sp.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5 text-xs"
+                        >
+                          <ExternalLink size={14} />
+                          <span>Live Demo</span>
+                        </a>
+                        <a
+                          href={sp.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5 text-xs"
+                        >
+                          <Github size={14} />
+                          <span>Source</span>
+                        </a>
+                      </div>
                     </div>
-                  </motion.a>
+                  </motion.div>
                 );
               })}
             </div>
