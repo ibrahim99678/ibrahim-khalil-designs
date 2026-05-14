@@ -2,6 +2,65 @@ import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Download, Phone } from "lucide-react";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
+import portrait1 from "@/assets/portrait-1.png";
+import portrait2 from "@/assets/portrait-2.png";
+import portrait3 from "@/assets/portrait-3.png";
+
+const portraits = [
+  { src: portrait1, alt: "Mohammad Ibrahim Khalil portrait 1" },
+  { src: portrait2, alt: "Mohammad Ibrahim Khalil portrait 2" },
+  { src: portrait3, alt: "Mohammad Ibrahim Khalil portrait 3" },
+];
+
+const PortraitSlideshow = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % portraits.length);
+    }, 4000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div className="relative w-full max-w-md mx-auto">
+      {/* Glow */}
+      <div className="absolute -inset-6 bg-gradient-to-tr from-primary/30 via-primary/10 to-transparent rounded-[2rem] blur-2xl opacity-70" />
+
+      <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden border border-border bg-card shadow-2xl">
+        {portraits.map((p, i) => (
+          <motion.img
+            key={p.src}
+            src={p.src}
+            alt={p.alt}
+            loading={i === 0 ? "eager" : "lazy"}
+            initial={false}
+            animate={{ opacity: i === index ? 1 : 0, scale: i === index ? 1 : 1.05 }}
+            transition={{ duration: 1.1, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ))}
+
+        {/* Subtle gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
+
+        {/* Indicators */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          {portraits.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              aria-label={`Show portrait ${i + 1}`}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                i === index ? "w-8 bg-primary" : "w-2 bg-foreground/40 hover:bg-foreground/70"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const useTypingEffect = (text: string, speed: number = 100, delay: number = 0) => {
   const [displayedText, setDisplayedText] = useState("");
@@ -102,13 +161,14 @@ const Hero = () => {
         }}
       />
 
-      <div className="container relative z-10 px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-4xl mx-auto text-center"
-        >
+      <div className="container relative z-10 px-6 py-24 lg:py-0">
+        <div className="grid lg:grid-cols-[1.3fr_1fr] gap-12 lg:gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center lg:text-left order-2 lg:order-1"
+          >
           {/* Pre-headline */}
           <motion.p
             initial={{ opacity: 0 }}
@@ -137,7 +197,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex items-center justify-center gap-2 text-lg md:text-xl text-primary mb-6"
+            className="flex items-center justify-center lg:justify-start gap-2 text-lg md:text-xl text-primary mb-6"
           >
             <Phone size={20} className="text-primary" />
             <span className="font-mono tracking-wider">
@@ -163,7 +223,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            className="text-muted-foreground text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-muted-foreground text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto lg:mx-0 mb-10 leading-relaxed"
           >
             15+ years driving enterprise IT excellence through ERP implementation, 
             infrastructure architecture, and innovative software solutions.
@@ -174,7 +234,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+            className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12"
           >
             <Button
               size="lg"
@@ -198,7 +258,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="flex items-center justify-center gap-6"
+            className="flex items-center justify-center lg:justify-start gap-6"
           >
             <a
               href="https://www.linkedin.com/in/mohammad-ibrahim-khalil-it/"
@@ -228,14 +288,25 @@ const Hero = () => {
               <span>Resume</span>
             </a>
           </motion.div>
-        </motion.div>
+          </motion.div>
+
+          {/* Portrait slideshow */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
+            className="order-1 lg:order-2"
+          >
+            <PortraitSlideshow />
+          </motion.div>
+        </div>
 
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="hidden lg:block absolute bottom-10 left-1/2 -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
