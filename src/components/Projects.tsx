@@ -5,7 +5,7 @@ import { ExternalLink, Github, Server, Database, Monitor, Network, Code2, Shoppi
 
 const projects = [
   {
-    title: "Update Interior BD Limited",
+    title: "Micron Infosys",
     category: "IT Management",
     description: "Lead end-to-end IT operations for a multi-location interior solutions company, overseeing ERP/CRM implementation, cybersecurity, and infrastructure with 99.9% uptime.",
     icon: Server,
